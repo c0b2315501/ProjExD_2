@@ -41,13 +41,11 @@ def game_over(screen: pg.Surface) -> None:
     bo_img.set_alpha(150)  # 透明度設定
     bo_rct = bo_img.get_rect()  # 四角の抽出
     screen.blit(bo_img, bo_rct) 
-    
     #テキスト
     fonto = pg.font.Font(None, 80)   # フォント設定
     txt = fonto.render("Game Over", True, (255, 255, 255))  
     txt_rct = txt.get_rect(center = (WIDTH//2, HEIGHT//2))  # テキスト抽出と位置
     screen.blit(txt, txt_rct)
-
     #泣きこうかとん
     kk_TT_img = pg.image.load("fig/8.png")  
     TT_rct = kk_TT_img.get_rect(center = (WIDTH//3, HEIGHT//2))  # 泣きこうかとん抽出と位置
@@ -97,16 +95,13 @@ def main():
         #if kk_rct.colliderect(bb_rct):
            # print("ゲームオーバー")
            # return
-        
         # ゲームオーバー呼出
         if kk_rct.colliderect(bb_rct):
             game_over(screen)
             pg.display.update()
             time.sleep(5)  #５秒間表示
             return
-
         screen.blit(bg_img, [0, 0]) 
-
         key_lst = pg.key.get_pressed()
         sum_mv = [0, 0]
         for key, tpl in DELTA.items():
